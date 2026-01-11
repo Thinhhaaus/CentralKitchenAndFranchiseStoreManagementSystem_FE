@@ -1,16 +1,90 @@
-# React + Vite
+# Central Kitchen and Franchise Store Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Overview
+**Central Kitchen and Franchise Store Management System** là hệ thống quản lý toàn diện nhằm kết nối **Bếp Trung Tâm (Central Kitchen)** và **các cửa hàng Franchise**, hỗ trợ quy trình đặt hàng – sản xuất – phân phối – theo dõi – báo cáo một cách hiệu quả, minh bạch và theo thời gian thực.
 
-Currently, two official plugins are available:
+Hệ thống được thiết kế theo **mô hình phân quyền theo vai trò (Role-based Access Control)**, mỗi actor có dashboard và chức năng riêng, phù hợp với nghiệp vụ thực tế trong chuỗi F&B.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎯 Mục tiêu hệ thống
+- Chuẩn hóa quy trình đặt hàng và cung ứng giữa Franchise và Central Kitchen
+- Tối ưu kế hoạch sản xuất và phân phối
+- Giảm hao hụt nguyên liệu, kiểm soát hạn sử dụng và tồn kho
+- Cung cấp báo cáo và phân tích hiệu suất cho quản lý
+- Tăng tính minh bạch và khả năng kiểm soát toàn hệ thống
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧑‍💼 Actors & Responsibilities
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1️⃣ Franchise Store Staff
+**Vai trò:** Nhân viên cửa hàng Franchise  
+
+**Chức năng chính:**
+- Tạo đơn đặt hàng nguyên liệu / bán thành phẩm từ bếp trung tâm
+- Theo dõi trạng thái xử lý và giao hàng của đơn đặt
+- Xác nhận đã nhận hàng và phản hồi chất lượng
+- Xem tồn kho hiện tại tại cửa hàng
+
+---
+
+### 2️⃣ Central Kitchen Staff
+**Vai trò:** Nhân viên bếp trung tâm  
+
+**Chức năng chính:**
+- Tiếp nhận và xử lý đơn đặt hàng từ các cửa hàng franchise
+- Lập kế hoạch sản xuất theo nhu cầu tổng hợp
+- Cập nhật trạng thái sản xuất và xuất kho
+- Quản lý nguyên liệu đầu vào, hạn sử dụng và lô sản xuất
+
+---
+
+### 3️⃣ Supply Coordinator
+**Vai trò:** Điều phối cung ứng  
+
+**Chức năng chính:**
+- Tổng hợp và phân loại đơn đặt hàng từ các cửa hàng
+- Điều phối sản xuất và phân phối hàng hóa
+- Lập lịch giao hàng và theo dõi tiến độ vận chuyển
+- Xử lý các vấn đề phát sinh (thiếu hàng, giao trễ, hủy đơn)
+
+---
+
+### 4️⃣ Manager
+**Vai trò:** Quản lý vận hành  
+
+**Chức năng chính:**
+- Quản lý danh mục sản phẩm, công thức và định mức nguyên liệu
+- Quản lý tồn kho bếp trung tâm và cửa hàng
+- Theo dõi hiệu suất sản xuất, phân phối và bán hàng
+- Thống kê, báo cáo chi phí, hao hụt và hiệu quả vận hành
+
+---
+
+### 5️⃣ Admin
+**Vai trò:** Quản trị hệ thống  
+
+**Chức năng chính:**
+- Quản lý người dùng và phân quyền theo vai trò
+- Cấu hình hệ thống (đơn vị tính, quy trình, tham số vận hành)
+- Quản lý danh mục cửa hàng franchise và bếp trung tâm
+- Báo cáo tổng hợp toàn hệ thống
+
+---
+
+## 🔁 Business Workflow
+
+```text
+Franchise Store
+    ↓ (Create Order)
+Supply Coordinator
+    ↓ (Aggregate & Schedule)
+Central Kitchen
+    ↓ (Produce & Dispatch)
+Delivery
+    ↓ (Ship & Track)
+Franchise Store
+    ↓ (Confirm & Feedback)
+Manager / Admin
+    ↓ (Monitor & Report)
